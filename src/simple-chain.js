@@ -13,6 +13,11 @@ export default {
   },
 
   addLink(value) {
+    this.obj.splice(position -1, 1);
+    return this;
+  },
+
+  removeLink(position) {
     if (position < 1 || position > this.chain.length - 1 || typeof position !== 'number') {
       this.chain = [];
       throw new Error("You can't remove incorrect link!");
@@ -21,11 +26,6 @@ export default {
     return this;
   },
 
-  removeLink(position) {
-    this.obj.splice(position -1, 1);
-    return this;
-  },
-  
   reverseChain() {
     this.reverseChain();
     return this;
