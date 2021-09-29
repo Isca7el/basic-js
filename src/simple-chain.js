@@ -13,27 +13,28 @@ export default {
   },
 
   addLink(value) {
-    this.obj.splice(position -1, 1);
+    this.obj.push(`( ${value} )`);
     return this;
+    
   },
 
   removeLink(position) {
-    if (position < 1 || position > this.chain.length - 1 || typeof position !== 'number') {
-      this.chain = [];
+    if (typeof(position) !== 'number' || position < 1 || position > this.getLength()) {
+      this.obj = [];
       throw new Error("You can't remove incorrect link!");
     }
-    this.push(`(${value})`);
+    this.obj.splice(position-1, 1);
     return this;
   },
 
   reverseChain() {
-    this.reverseChain();
+    this.obj.reverse();
     return this;
   },
 
   finishChain() {
-    let result = `${this.obj.join('~~')}`;
+    let result = this.obj.join('~~');
     this.obj = [];
     return result;
-  }
+  },
 };
