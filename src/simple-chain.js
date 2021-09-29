@@ -32,7 +32,7 @@ export default {
   },
 
   finishChain() {
-    let result = `${this.chain.join('~~')}`;
+    let result = `${this.obj.join('~~')}`;
     this.obj = [];
     return result;
   }
